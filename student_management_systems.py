@@ -22,8 +22,6 @@ def add_student():
 
         student_lists.append({"id": stu_id, "name": name, "mark": mark})
 
-
-
     except ValueError:
         print("only gives related data type values")
 
@@ -66,7 +64,6 @@ def calculate_marks():
 
     for num in student_lists:
 
-        # print(num)
 
         sum = sum + num["mark"]
 
@@ -140,17 +137,66 @@ def update_stud_marks():
         if found is False:
             print("no student found ")
 
-        print(student_lists)
+        # print(student_lists)
 
     except ValueError:
 
         print("give the correct value")
 
 
+def show_grade():
+
+    try:
+        stu_id = int(input("enter a student id : "))
+
+        found = False
+
+        for stu_list in student_lists:
+
+            if stu_id == stu_list["id"]:
+
+                found = True
+
+                if stu_list["mark"] >= 90 and stu_list["mark"] <= 100:
+
+                    print(f'{stu_list.get("name")}\n{stu_list.get("mark")}\ngrade : A')
+
+                elif stu_list["mark"] >= 80 and stu_list["mark"] <= 90:
+
+                    print(f'{stu_list.get("name")}\n{stu_list.get("mark")}\n grade : B')
+
+
+                elif stu_list["mark"] >= 70 and stu_list["mark"] <= 80:
+
+                    print(f'{stu_list.get("name")}\n{stu_list.get("mark")}\n grade : C')
+
+
+                elif stu_list["mark"] >= 60 and stu_list["mark"] <= 70:
+
+                    print(f'{stu_list.get("name")}\n{stu_list.get("mark")}\n grade : D')
+
+
+                elif stu_list["mark"] >= 50 and stu_list["mark"] <= 60:
+
+                    print(f'{stu_list.get("name")}\n{stu_list.get("mark")}\n grade : E')
+
+
+                elif stu_list["mark"] <= 50:
+
+                    print(f'{stu_list.get("name")}\n{stu_list.get("mark")}\n grade : F')
+
+        if found is False:
+            print("no student found")
+
+    except:
+        print("give correctly")
+
+
+
 while True:
 
     users_options = input("add student ,view student , search student , calculate marks ,show passed students, delete student ,"
-                          " update marks,exit : ")
+                          " update marks ,show grade,exit : ")
 
     if users_options == "add student":
         add_student()
@@ -183,6 +229,10 @@ while True:
     elif users_options == "update marks":
 
         update_stud_marks()
+
+    elif users_options == "show grade":
+
+        show_grade()
 
     elif users_options == "exit":
         break
