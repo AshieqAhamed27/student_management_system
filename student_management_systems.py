@@ -8,7 +8,6 @@
 
 """
 
-
 student_lists = []
 
 def add_student():
@@ -20,7 +19,10 @@ def add_student():
 
         # print({"id":id ,"name":name ,"mark":mark} )
 
-        student_lists.append({"id": stu_id, "name": name, "mark": mark})
+        if stu_id >0 and (mark >=0 and mark <=100):
+           student_lists.append({"id": stu_id, "name": name, "mark": mark})
+        else:
+            print("no student added give only positive integers")
 
     except ValueError:
         print("only gives related data type values")
@@ -124,20 +126,24 @@ def update_stud_marks():
         my_id = int(input("enter a student id : "))
         my_mark = int(input("enter a new student marks : "))
 
-        found = False
+        if my_id >0 and (my_mark >=0 and my_mark<= 100):
 
-        for my_list in student_lists:
+            found = False
 
-            if my_id == my_list["id"]:
-                found = True
+            for my_list in student_lists:
 
-                my_list.update({"mark": my_mark})
-                break
+                if my_id == my_list["id"]:
+                    found = True
 
-        if found is False:
-            print("no student found ")
+                    my_list.update({"mark": my_mark})
+                    break
 
-        # print(student_lists)
+            if found is False:
+                print("no student found ")
+
+            # print(student_lists)
+        else:
+            print("no values updated give positive numbers ")
 
     except ValueError:
 
@@ -248,4 +254,12 @@ while True:
 
 
 
-
+ # if stu_id >=0:
+ #            if mark >0 and mark<=100:
+ #
+ #                student_lists.append({"id": stu_id, "name": name, "mark": mark})
+ #            else:
+ #                print("give correct mark")
+ #
+ #        else:
+ #            print("give perfect numbers")
