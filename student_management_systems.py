@@ -248,18 +248,3 @@ while True:
 
 
 
-
-
-
-
-
-
- # if stu_id >=0:
- #            if mark >0 and mark<=100:
- #
- #                student_lists.append({"id": stu_id, "name": name, "mark": mark})
- #            else:
- #                print("give correct mark")
- #
- #        else:
- #            print("give perfect numbers")
