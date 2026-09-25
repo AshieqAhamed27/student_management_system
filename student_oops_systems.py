@@ -118,7 +118,7 @@ class StudentManagement:
 
         try:
 
-            average = sum/count
+            average = total/count
 
             print(average)
         except ZeroDivisionError:
