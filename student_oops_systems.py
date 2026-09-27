@@ -85,21 +85,22 @@ class StudentManagement:
 
     def search_student(self):
 
-        my_id = int(input("enter a number : "))
+       try:
+           my_id = int(input("enter a number : "))
 
-        found = False
+           found = False
 
-        for student in self.student_list:
+           for student in self.student_list:
 
-            if student.id == my_id:
+               if student.id == my_id:
+                   found = True
 
-                found = True
+                   print(student.id, student.name, student.mark)
 
-                print(student.id ,student.name ,student.mark)
-
-        if found is False:
-
-            print("no student found ")
+           if found is False:
+               print("no student found ")
+       except ValueError:
+           print("give correct value")
 
 
     def calculate_mark(self):
@@ -110,7 +111,7 @@ class StudentManagement:
 
         for student in self.student_list:
 
-            total = student.mark + sum
+            total = student.mark + total
 
             count = count + 1
 
@@ -139,9 +140,9 @@ class StudentManagement:
 
                 break
 
-        if found is False:
-
-            print("no student found")
+        # if found is False:
+        #
+        #     print("no student found")
 
 management = StudentManagement()
 
